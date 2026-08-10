@@ -1,76 +1,39 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Jurnal PKL</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
-    <style>
-        body {
-            background: #f5f7fb;
-        }
+            <!-- Page Heading -->
+            @isset($header)
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
 
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
-        }
-
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
-        }
-
-        .table {
-            background: white;
-        }
-
-        .btn {
-            border-radius: 10px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-
-            <a class="navbar-brand fw-bold" href="/">
-                <i class="bi bi-journal-bookmark-fill"></i>
-                Jurnal PKL
-            </a>
-
-            <div>
-                <a href="{{ route('journals.index') }}" class="btn btn-light me-2">
-                    <i class="bi bi-journal-text"></i>
-                    Jurnal
-                </a>
-
-                <a href="{{ route('profiles.index') }}" class="btn btn-success">
-                    <i class="bi bi-person-circle"></i>
-                    Profil
-                </a>
-            </div>
-
+            <!-- Page Content -->
+        <main class="container mt-4">
+            @yield('content')
+        </main>
         </div>
-    </nav>
-
-    <!-- Content -->
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-body">
-                @yield('content')
-            </div>
-        </div>
-    </div>
-
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

@@ -2,72 +2,61 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function index()
+    /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request): View
     {
-        $profiles = Profile::all();
-        return view('profiles.index', compact('profiles'));
+        return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
-    public function create()
+    /**
+     * Update the user's profile information.
+     */
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        return view('profiles.create');
+        $user = $request->user();
+
+        $user->fill($request->validated());
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    public function store(Request $request)
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
     {
-        $request->validate([
-            'nama' => 'required',
-            'sekolah' => 'required',
-            'tempat_pkl' => 'required',
-            'guru_pembimbing' => 'required',
-            'instruktur' => 'required',
-            'periode' => 'required',
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
         ]);
 
-        Profile::create($request->all());
+        $user = $request->user();
 
-        return redirect()->route('profiles.index')
-            ->with('success', 'Profil berhasil ditambahkan');
-    }
+        Auth::logout();
 
-    public function edit(Profile $profile)
-    {
-        return view('profiles.edit', compact('profile'));
-    }
+        $user->delete();
 
-    public function update(Request $request, Profile $profile)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'sekolah' => 'required',
-            'tempat_pkl' => 'required',
-            'guru_pembimbing' => 'required',
-            'instruktur' => 'required',
-            'periode' => 'required',
-        ]);
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        $profile->update([
-            'nama' => $request->nama,
-            'sekolah' => $request->sekolah,
-            'tempat_pkl' => $request->tempat_pkl,
-            'guru_pembimbing' => $request->guru_pembimbing,
-            'instruktur' => $request->instruktur,
-            'periode' => $request->periode,
-        ]);
-
-        return redirect()->route('profiles.index')
-          ->with('success', 'Profil berhasil diupdate');
-    }
-    public function destroy(Profile $profile)
-    {
-        $profile->delete();
-
-        return redirect()->route('profiles.index')
-            ->with('success', 'Profil berhasil dihapus');
+        return Redirect::to('/');
     }
 }

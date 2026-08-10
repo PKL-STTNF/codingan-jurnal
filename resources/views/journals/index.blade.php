@@ -1,119 +1,153 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 
 @if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
 @endif
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container mt-4">
 
-<h2>
+    <div class="content-card">
 
-<i class="bi bi-book"></i>
+        <div class="header-journal d-md-flex justify-content-between align-items-center mb-4">
 
-Data Jurnal PKL
+            <div>
 
-</h2>
+                <h1 class="page-title">
+                    📖 Data Jurnal
+                </h1>
 
-<a href="{{ route('journals.create') }}" class="btn btn-primary">
+                <p class="page-subtitle">
+                    Kelola kegiatan PKL harian Anda
+                </p>
 
-<i class="bi bi-plus-circle"></i>
+            </div>
 
-Tambah Jurnal 
+            <a href="{{ route('journals.create') }}"
+                class="btn btn-primary">
 
-</a>
+                <i class="bi bi-plus-circle"></i>
 
-</div>
+                Tambah Jurnal
 
-<form action="{{ route('journals.index') }}" method="GET" class="mb-3">
-
-    <div class="row">
-
-        <div class="col-md-4">
-
-            <input
-                type="text"
-                name="search"
-                class="form-control"
-                placeholder="Cari pekerjaan atau hari..."
-                value="{{ request('search') }}">
+            </a>
 
         </div>
 
-        <div class="col-md-2">
+        <form action="{{ route('journals.index') }}" method="GET" class="search-area row mb-4">
 
-            <button class="btn btn-primary">
-                Cari
-            </button>
+            <div class="col-md-5">
 
-        </div>
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control search-box"
+                    placeholder="Cari kegiatan..."
+                    value="{{ request('search') }}">
+
+            </div>
+
+            <div class="col-md-2">
+
+                <button class="btn btn-primary w-100 h-100">
+
+                    <i class="bi bi-search"></i>
+
+                    Cari
+
+                </button>
+
+            </div>
+
+        </form>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover">
+                
+            <thead>
+
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Hari</th>
+                    <th>Unit Kerja</th>
+                    <th>Catatan</th>
+                    <th>Aksi</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if($journals->isEmpty())
+
+                    <tr>
+
+                        <td colspan="6" class="text-center py-4">
+                            Belum ada data jurnal.
+                        </td>
+
+                    </tr>
+
+                @else
+
+                    @foreach($journals as $journal)
+
+                        <tr>
+
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $journal->tanggal }}</td>
+                            <td>{{ $journal->hari }}</td>
+                            <td>{!! nl2br(e($journal->unit_kerja)) !!}</td>
+                            <td>{{ $journal->catatan }}</td>
+
+                            <td>
+
+                                <a href="{{ route('journals.edit', $journal->id) }}"
+                                    class="btn btn-outline-warning btn-sm">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+                                <form action="{{ route('journals.destroy', $journal->id) }}"
+                                    method="POST"
+                                    class="d-inline">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button class="btn btn-outline-danger btn-sm"
+                                        onclick="return confirm('Yakin ingin menghapus?')">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                    @endforeach
+
+                @endif
+
+            </tbody>
+
+        </table>
 
     </div>
 
-</form>
+    <div class="mt-4">
+        {{ $journals->links() }}
+    </div>
 
 </div>
-
-<table class="table table-bordered table-hover">
-
-    <thead class="table-primary">
-
-        <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Hari</th>
-            <th>Unit Kerja</th>
-            <th>Catatan</th>
-            <th>Aksi</th>
-        </tr>
-
-    </thead>
-
-<tbody>
-
-@foreach($journals as $journal)
-
-<tr>
-
-<td>{{ $loop->iteration }}</td>
-<td>{{ $journal->tanggal }}</td>
-<td>{{ $journal->hari }}</td>
-<td>{!! nl2br(e($journal->unit_kerja)) !!}</td>
-<td>{{ $journal->catatan }}</td>
-
-<td>
-
-<a href="{{ route('journals.edit',$journal->id) }}" class="btn btn-warning btn-sm">
-
-<i class="bi bi-pencil-square"></i>
-
-</a>
-
-<form action="{{ route('journals.destroy',$journal->id) }}"
-      method="POST"
-      class="d-inline">
-
-    @csrf
-    @method('DELETE')
-
-    <button class="btn btn-danger btn-sm"
-            onclick="return confirm('Yakin ingin menghapus?')">
-        <i class="bi bi-trash"></i>
-    </button>
-
-</form>
-
-</td>
-
-</tr>
-
-@endforeach
-
-</tbody>
-
-</table>
 
 @endsection

@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Journal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JournalController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Journal::query();
+       $query = Journal::where('user_id', Auth::id());
 
         if ($request->search) {
-            $query->where('hari', 'like', '%' . $request->search . '%')
-               ->orWhere('unit_kerja', 'like', '%' . $request->search . '%');
+            $query->where(function ($q) use ($request) {
+                $q->where('hari', 'like', '%' . $request->search . '%')
+                  ->orWhere('unit_kerja', 'like', '%' . $request->search . '%');
+    });
+
     }
 
-        $journals = $query->get();
+        $journals = $query->latest()->paginate(10)->withQueryString();
 
         return view('journals.index', compact('journals'));
     }
@@ -38,21 +42,31 @@ class JournalController extends Controller
           
         ]);
 
-        Journal::create($request->all());
+        Journal::create([
+            'user_id' => Auth::id(),
+            'tanggal' => $request->tanggal,
+            'hari' => $request->hari,
+            'unit_kerja' => $request->unit_kerja,
+            'catatan' => $request->catatan,
+        ]);
 
         return redirect()->route('journals.index')
                 ->with('success','Data berhasil ditambahkan');
-    }
+        }
 
 
-   public function edit(Journal $journal)
+    public function edit(Journal $journal)
     {
-        return view('journals.edit', compact('journal'));
+        if ($journal->user_id != Auth::id()) {
+        abort(403);
+    }
+
+    return view('journals.edit', compact('journal'));
     }
 
 
 
-   public function update(Request $request, Journal $journal)
+    public function update(Request $request, Journal $journal)
     {
         $request->validate([
             'tanggal' => 'required',
@@ -76,6 +90,10 @@ class JournalController extends Controller
 
     public function destroy(Journal $journal)
     {
+         if ($journal->user_id != Auth::id()) {
+        abort(403);
+    }
+    
         $journal->delete();
 
         return redirect()->route('journals.index')
