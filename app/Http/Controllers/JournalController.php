@@ -10,15 +10,15 @@ class JournalController extends Controller
 {
     public function index(Request $request)
     {
-       $query = Journal::where('user_id', Auth::id());
+        $query = Journal::where('user_id', Auth::id());
 
         if ($request->search) {
             $query->where(function ($q) use ($request) {
-                $q->where('hari', 'like', '%' . $request->search . '%')
-                  ->orWhere('unit_kerja', 'like', '%' . $request->search . '%');
-    });
+                $q->where('hari', 'like', '%'.$request->search.'%')
+                    ->orWhere('unit_kerja', 'like', '%'.$request->search.'%');
+            });
 
-    }
+        }
 
         $journals = $query->latest()->paginate(10)->withQueryString();
 
@@ -35,69 +35,69 @@ class JournalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tanggal' => 'required',
-            'hari' => 'required',
-            'unit_kerja' => 'required',
-            'catatan' => 'nullable',
-          
+            'tanggal' => ['required', 'date'],
+            'unit_kerja' => ['required', 'string'],
+            'catatan' => ['nullable', 'string'],
         ]);
 
         Journal::create([
-            'user_id' => Auth::id(),
+            'user_id' => auth()->id(),
             'tanggal' => $request->tanggal,
-            'hari' => $request->hari,
+            'hari' => \Carbon\Carbon::parse($request->tanggal)->translatedFormat('l'),
             'unit_kerja' => $request->unit_kerja,
             'catatan' => $request->catatan,
         ]);
 
-        return redirect()->route('journals.index')
-                ->with('success','Data berhasil ditambahkan');
-        }
+        return redirect()
+            ->route('journals.index')
+            ->with('success', 'Jurnal berhasil ditambahkan.');
+    }
 
 
     public function edit(Journal $journal)
     {
         if ($journal->user_id != Auth::id()) {
-        abort(403);
+            abort(403);
+        }
+
+        return view('journals.edit', compact('journal'));
     }
 
-    return view('journals.edit', compact('journal'));
-    }
-
-
-
+    
     public function update(Request $request, Journal $journal)
     {
+        if ($journal->user_id !== Auth::id()) {
+            abort(403);
+        }
+
         $request->validate([
-            'tanggal' => 'required',
-            'hari' => 'required',
-            'unit_kerja' => 'required',
-            'catatan' => 'nullable',
-        
-    ]);
+            'tanggal' => ['required', 'date'],
+            'unit_kerja' => ['required', 'string'],
+            'catatan' => ['nullable', 'string'],
+        ]);
 
         $journal->update([
             'tanggal' => $request->tanggal,
-            'hari' => $request->hari,
+            'hari' => \Carbon\Carbon::parse($request->tanggal)->translatedFormat('l'),
             'unit_kerja' => $request->unit_kerja,
             'catatan' => $request->catatan,
-    
-    ]);
+
+        ]);
 
         return redirect()->route('journals.index')
-          ->with('success', 'Data berhasil diupdate');
+            ->with('success', 'Data berhasil diupdate');
     }
 
     public function destroy(Journal $journal)
     {
-         if ($journal->user_id != Auth::id()) {
-        abort(403);
-    }
-    
+        if ($journal->user_id != Auth::id()) {
+            abort(403);
+        }
+
         $journal->delete();
 
         return redirect()->route('journals.index')
-          ->with('success', 'Data berhasil dihapus');
+            ->with('success', 'Data berhasil dihapus');
     }
-
+    
 }

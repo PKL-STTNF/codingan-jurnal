@@ -18,7 +18,7 @@
                 </h2>
 
                 <p class="text-muted">
-                    Silakan masuk untuk melanjutkan ke akun Anda
+                    Silakan masuk untuk melanjutkan ke akun Anda 
                 </p>
 
             </div>

@@ -9,190 +9,581 @@
     </h2>
 
     <p class="page-subtitle">
-        Berikut panduan penggunaan Website Jurnal PKL.
+        Panduan lengkap untuk menggunakan Website Jurnal PKL.
     </p>
 
 </div>
 
 <div class="row">
 
-    <!-- MENU -->
-    <div class="col-lg-3 mb-3">
+    <!-- ================= MENU ================= -->
 
-        <div class="list-group shadow-sm">
+    <div class="col-lg-3 mb-4">
 
-            <a href="#"
-                class="list-group-item list-group-item-action active menu-item"
-                data-target="tambah">
+        <div class="card shadow-sm border-0">
 
-                1. Cara Menambah Jurnal
+            <div class="card-body p-2">
 
-            </a>
+                <div class="list-group list-group-flush">
 
-            <a href="#"
-                class="list-group-item list-group-item-action menu-item"
-                data-target="edit">
+                    <a href="#"
+                       class="list-group-item list-group-item-action active menu-item"
+                       data-target="tambah">
 
-                2. Cara Mengedit Jurnal
+                        &nbsp; Menambah Jurnal
 
-            </a>
+                    </a>
 
-            <a href="#"
-                class="list-group-item list-group-item-action menu-item"
-                data-target="hapus">
+                    <a href="#"
+                       class="list-group-item list-group-item-action menu-item"
+                       data-target="edit">
 
-                3. Cara Menghapus Jurnal
+                        &nbsp; Mengedit Jurnal
 
-            </a>
+                    </a>
 
-            <a href="#"
-                class="list-group-item list-group-item-action menu-item"
-                data-target="filter">
+                    <a href="#"
+                       class="list-group-item list-group-item-action menu-item"
+                       data-target="hapus">
 
-                4. Filter Data
+                        &nbsp; Menghapus Jurnal
 
-            </a>
+                    </a>
+
+                    <a href="#"
+                       class="list-group-item list-group-item-action menu-item"
+                       data-target="filter">
+
+                        &nbsp; Mencari & Filter
+
+                    </a>
+
+                    <a href="#"
+                       class="list-group-item list-group-item-action menu-item"
+                       data-target="profil">
+
+                        &nbsp; Mengatur Profil
+
+                    </a>
+
+                    <a href="#"
+                       class="list-group-item list-group-item-action menu-item"
+                       data-target="tips">
+
+                        &nbsp; Tips Penggunaan
+
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
+    <!-- ================= CONTENT ================= -->
+
     <div class="col-lg-9">
 
         <div class="card shadow-sm border-0">
 
-            <div class="card-body">
+            <div class="card-body p-4">
 
-                <!-- ===================== 1 ===================== -->
+                <!-- ================================================= -->
+                <!-- 1. TAMBAH JURNAL -->
+                <!-- ================================================= -->
 
                 <div id="tambah" class="content-section">
 
-                    <h4>1. Cara Menambah Jurnal</h4>
+                    <div class="mb-4">
 
-                    <p>
-                        Ikuti langkah-langkah berikut untuk menambahkan jurnal baru.
-                    </p>
+                        <span class="badge bg-primary mb-2">
+                            Panduan 01
+                        </span>
+
+                        <h4 class="fw-bold">
+                            Cara Menambah Jurnal
+                        </h4>
+
+                        <p class="text-muted">
+                            Gunakan fitur ini untuk mencatat kegiatan PKL
+                            yang telah dilakukan.
+                        </p>
+
+                    </div>
+
+                    <h6 class="fw-bold">
+                        Langkah-langkah:
+                    </h6>
 
                     <ol>
 
-                        <li>Klik menu <b>Data Jurnal</b>.</li>
+                        <li class="mb-2">
+                            Buka menu <b>Data Jurnal</b>.
+                        </li>
 
-                        <li>Klik tombol <b>Tambah Jurnal</b> di pojok kanan atas.</li>
+                        <li class="mb-2">
+                            Klik tombol <b>Tambah Jurnal</b>.
+                        </li>
 
-                        <li>
-                            Isi seluruh data jurnal meliputi :
+                        <li class="mb-2">
+                            Isi data jurnal yang diperlukan.
+                        </li>
 
-                            <ul>
+                        <li class="mb-2">
+
+                            Masukkan:
+
+                            <ul class="mt-2">
+
                                 <li>Tanggal kegiatan.</li>
+
                                 <li>Hari.</li>
+
                                 <li>Unit Kerja / Pekerjaan.</li>
-                                <li>Catatan (Opsional).</li>
+
+                                <li>Catatan kegiatan.</li>
+
                             </ul>
 
                         </li>
 
-                        <li>Pastikan seluruh data sudah benar.</li>
+                        <li class="mb-2">
+                            Pastikan data yang dimasukkan sudah benar.
+                        </li>
 
-                        <li>Klik tombol <b>Simpan Jurnal</b>.</li>
+                        <li class="mb-2">
+                            Klik tombol <b>Simpan Jurnal</b>.
+                        </li>
 
-                        <li>Data otomatis muncul pada tabel jurnal.</li>
+                        <li>
+                            Jurnal akan otomatis ditampilkan pada
+                            halaman Data Jurnal.
+                        </li>
 
                     </ol>
 
-                    <div class="alert alert-info">
+                    <div class="alert alert-info mt-4">
 
-                        <b>Tips :</b>
+                        <strong>💡 Tips:</strong>
 
-                        Apabila dalam satu hari terdapat lebih dari satu pekerjaan,
-                        tuliskan seluruh kegiatan pada kolom Unit Kerja dengan
-                        memisahkan setiap kegiatan menggunakan baris baru.
+                        Jika dalam satu hari terdapat beberapa kegiatan,
+                        tuliskan seluruh kegiatan pada bagian
+                        <b>Unit Kerja / Pekerjaan</b> secara terpisah
+                        agar lebih mudah dibaca.
 
                     </div>
 
-                    <img src="{{ asset('images/panduan/tambah.png') }}"
-                        class="img-fluid rounded border">
+                    <div class="mt-4">
+
+                        <img src="{{ asset('images/panduan/tambah.png') }}"
+                             class="img-fluid rounded border shadow-sm"
+                             alt="Panduan menambah jurnal">
+
+                    </div>
 
                 </div>
 
-                <!-- ===================== 2 ===================== -->
+                <!-- ================================================= -->
+                <!-- 2. EDIT JURNAL -->
+                <!-- ================================================= -->
 
                 <div id="edit" class="content-section d-none">
 
-                    <h4>2. Cara Mengedit Jurnal</h4>
+                    <div class="mb-4">
 
-                    <ol>
+                        <span class="badge bg-warning text-dark mb-2">
+                            Panduan 02
+                        </span>
 
-                        <li>Buka halaman Data Jurnal.</li>
+                        <h4 class="fw-bold">
+                            Cara Mengedit Jurnal
+                        </h4>
 
-                        <li>Cari jurnal yang ingin diperbarui.</li>
-
-                        <li>Tekan tombol <b>Edit</b>.</li>
-
-                        <li>Ubah data yang diperlukan.</li>
-
-                        <li>Klik <b>Update Jurnal</b>.</li>
-
-                    </ol>
-
-                    <div class="alert alert-warning">
-
-                        Perubahan akan langsung tersimpan setelah tombol Update ditekan.
+                        <p class="text-muted">
+                            Fitur edit digunakan apabila terdapat data jurnal
+                            yang ingin diperbaiki atau diperbarui.
+                        </p>
 
                     </div>
 
-                    <img src="{{ asset('images/panduan/edit.png') }}"
-                        class="img-fluid rounded border">
+                    <h6 class="fw-bold">
+                        Langkah-langkah:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Buka halaman <b>Data Jurnal</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Cari jurnal yang ingin diperbaiki.
+                        </li>
+
+                        <li class="mb-2">
+                            Klik tombol <b>Edit</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Ubah data yang diperlukan.
+                        </li>
+
+                        <li class="mb-2">
+                            Periksa kembali data yang telah diubah.
+                        </li>
+
+                        <li>
+                            Klik tombol <b>Update Jurnal</b>.
+                        </li>
+
+                    </ol>
+
+                    <div class="alert alert-warning mt-4">
+
+                        <strong>⚠️ Perhatian:</strong>
+
+                        Pastikan perubahan data sudah benar sebelum
+                        menekan tombol <b>Update Jurnal</b>.
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <img src="{{ asset('images/panduan/edit.png') }}"
+                             class="img-fluid rounded border shadow-sm"
+                             alt="Panduan mengedit jurnal">
+
+                    </div>
 
                 </div>
 
-                <!-- ===================== 3 ===================== -->
+                <!-- ================================================= -->
+                <!-- 3. HAPUS JURNAL -->
+                <!-- ================================================= -->
 
                 <div id="hapus" class="content-section d-none">
 
-                    <h4>3. Cara Menghapus Jurnal</h4>
+                    <div class="mb-4">
 
-                    <ol>
+                        <span class="badge bg-danger mb-2">
+                            Panduan 03
+                        </span>
 
-                        <li>Pilih jurnal.</li>
+                        <h4 class="fw-bold">
+                            Cara Menghapus Jurnal
+                        </h4>
 
-                        <li>Klik tombol <b>Hapus</b>.</li>
-
-                        <li>Muncul konfirmasi.</li>
-
-                        <li>Klik OK.</li>
-
-                    </ol>
-
-                    <div class="alert alert-danger">
-
-                        Data yang sudah dihapus tidak dapat dikembalikan.
+                        <p class="text-muted">
+                            Fitur ini digunakan untuk menghapus jurnal
+                            yang sudah tidak diperlukan.
+                        </p>
 
                     </div>
 
-                    <img src="{{ asset('images/panduan/menghapus.png') }}"
-                        class="img-fluid rounded border">
+                    <h6 class="fw-bold">
+                        Langkah-langkah:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Buka halaman <b>Data Jurnal</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Cari jurnal yang ingin dihapus.
+                        </li>
+
+                        <li class="mb-2">
+                            Klik tombol <b>Hapus</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Sistem akan menampilkan konfirmasi.
+                        </li>
+
+                        <li>
+                            Klik <b>OK</b> untuk menghapus jurnal.
+                        </li>
+
+                    </ol>
+
+                    <div class="alert alert-danger mt-4">
+
+                        <strong>⚠️ Penting:</strong>
+
+                        Data jurnal yang sudah dihapus
+                        <b>tidak dapat dikembalikan</b>.
+                        Pastikan jurnal yang dipilih sudah benar.
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <img src="{{ asset('images/panduan/menghapus.png') }}"
+                             class="img-fluid rounded border shadow-sm"
+                             alt="Panduan menghapus jurnal">
+
+                    </div>
 
                 </div>
 
-                <!-- ===================== 4 ===================== -->
+                <!-- ================================================= -->
+                <!-- 4. CARI & FILTER -->
+                <!-- ================================================= -->
 
                 <div id="filter" class="content-section d-none">
 
-                    <h4>4. Filter Data</h4>
+                    <div class="mb-4">
 
-                    <p>
-                        Gunakan kotak pencarian untuk mencari jurnal berdasarkan hari maupun pekerjaan.
+                        <span class="badge bg-success mb-2">
+                            Panduan 04
+                        </span>
+
+                        <h4 class="fw-bold">
+                            Mencari & Filter Jurnal
+                        </h4>
+
+                        <p class="text-muted">
+                            Gunakan fitur pencarian untuk menemukan jurnal
+                            dengan lebih cepat.
+                        </p>
+
+                    </div>
+
+                    <h6 class="fw-bold">
+                        Cara menggunakan pencarian:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Buka halaman <b>Data Jurnal</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Cari kotak <b>Pencarian</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Masukkan kata kunci yang ingin dicari.
+                        </li>
+
+                        <li class="mb-2">
+                            Kata kunci dapat berupa <b>hari</b> atau
+                            <b>pekerjaan</b>.
+                        </li>
+
+                        <li>
+                            Klik tombol <b>Cari</b>.
+                        </li>
+
+                    </ol>
+
+                    <div class="alert alert-success mt-4">
+
+                        <strong>💡 Contoh:</strong>
+
+                        Jika ingin mencari kegiatan yang berkaitan
+                        dengan komputer, masukkan kata
+                        <b>komputer</b> pada kolom pencarian.
+
+                    </div>
+
+                    <p class="text-muted mt-3">
+                        Sistem akan menampilkan jurnal yang sesuai
+                        dengan kata kunci yang dimasukkan.
                     </p>
+
+                </div>
+
+                <!-- ================================================= -->
+                <!-- 5. PROFIL -->
+                <!-- ================================================= -->
+
+                <div id="profil" class="content-section d-none">
+
+                    <div class="mb-4">
+
+                        <span class="badge bg-info text-dark mb-2">
+                            Panduan 05
+                        </span>
+
+                        <h4 class="fw-bold">
+                            Mengatur Profil
+                        </h4>
+
+                        <p class="text-muted">
+                            Halaman Profil Saya digunakan untuk melihat dan mengubah
+                            informasi akun yang digunakan pada Website Jurnal PKL.
+                        </p>
+
+                    </div>
+
+                    <h6 class="fw-bold">
+                        Informasi yang tersedia:
+                    </h6>
 
                     <ul>
 
-                        <li>Ketik kata kunci.</li>
+                        <li class="mb-2">
+                            <b>Nama</b> — nama yang digunakan pada akun.
+                        </li>
 
-                        <li>Klik Cari.</li>
+                        <li class="mb-2">
+                            <b>Email</b> — alamat email yang digunakan pada akun.
+                        </li>
 
-                        <li>Data akan difilter secara otomatis.</li>
+                        <li class="mb-2">
+                            <b>Jumlah Jurnal</b> — menampilkan jumlah jurnal
+                            yang telah dibuat oleh pengguna.
+                        </li>
 
                     </ul>
+
+                    <h6 class="fw-bold mt-4">
+                        Cara mengubah informasi akun:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Buka menu <b>Profil Saya</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Ubah bagian <b>Nama</b> atau <b>Email</b>
+                            sesuai kebutuhan.
+                        </li>
+
+                        <li class="mb-2">
+                            Pastikan data yang dimasukkan sudah benar.
+                        </li>
+
+                        <li>
+                            Klik tombol <b>Simpan Perubahan</b>.
+                        </li>
+
+                    </ol>
+
+                    <div class="alert alert-info mt-4">
+
+                        <strong>💡 Tips:</strong>
+
+                        Gunakan nama dan email yang benar agar informasi akun
+                        tetap sesuai dan mudah dikenali.
+
+                    </div>
+
+                </div>
+
+                <!-- ================================================= -->
+                <!-- 6. TIPS -->
+                <!-- ================================================= -->
+
+                <div id="tips" class="content-section d-none">
+
+                    <div class="mb-4">
+
+                        <span class="badge bg-secondary mb-2">
+                            Panduan 06
+                        </span>
+
+                        <h4 class="fw-bold">
+                            Tips Penggunaan
+                        </h4>
+
+                        <p class="text-muted">
+                            Beberapa tips agar pencatatan jurnal PKL
+                            tetap rapi dan mudah digunakan.
+                        </p>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <h6 class="fw-bold">
+                                    Catat Secara Rutin
+                                </h6>
+
+                                <p class="text-muted mb-0">
+                                    Isi jurnal setiap selesai melakukan
+                                    kegiatan PKL agar tidak lupa.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <h6 class="fw-bold">
+                                    Gunakan Tanggal yang Benar
+                                </h6>
+
+                                <p class="text-muted mb-0">
+                                    Pastikan tanggal jurnal sesuai dengan
+                                    tanggal kegiatan sebenarnya.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <h6 class="fw-bold">
+                                    Gunakan Catatan yang Jelas
+                                </h6>
+
+                                <p class="text-muted mb-0">
+                                    Tuliskan kegiatan dengan singkat,
+                                    jelas, dan mudah dipahami.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <h6 class="fw-bold">
+                                    Periksa Data
+                                </h6>
+
+                                <p class="text-muted mb-0">
+                                    Selalu periksa kembali jurnal sebelum
+                                    menyimpan atau memperbarui data.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="alert alert-primary mt-3">
+
+                        <strong>Kesimpulan:</strong>
+
+                        Gunakan Website Jurnal PKL secara rutin untuk
+                        mencatat seluruh kegiatan selama pelaksanaan PKL.
+                        Dengan pencatatan yang teratur, data jurnal akan
+                        lebih mudah dikelola dan diperiksa.
+
+                    </div>
 
                 </div>
 
@@ -203,6 +594,61 @@
     </div>
 
 </div>
+
+<!-- ================= STYLE ================= -->
+
+<style>
+
+    .menu-item {
+        border: none !important;
+        padding: 14px 16px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .menu-item:hover {
+        padding-left: 20px;
+    }
+
+    .menu-item.active {
+        font-weight: 600;
+    }
+
+    .content-section {
+        animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .content-section h4 {
+        margin-bottom: 8px;
+    }
+
+    .content-section ol li,
+    .content-section ul li {
+        line-height: 1.7;
+    }
+
+    .content-section img {
+        max-height: 500px;
+        object-fit: contain;
+    }
+
+    @keyframes fadeIn {
+
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+</style>
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
@@ -217,12 +663,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             e.preventDefault();
 
-            menu.forEach(m => m.classList.remove("active"));
+            // Hapus active dari semua menu
+            menu.forEach(m => {
+                m.classList.remove("active");
+            });
+
+            // Tambahkan active ke menu yang dipilih
             this.classList.add("active");
 
-            content.forEach(c => c.classList.add("d-none"));
+            // Sembunyikan semua konten
+            content.forEach(c => {
+                c.classList.add("d-none");
+            });
 
-            document.getElementById(this.dataset.target).classList.remove("d-none");
+            // Tampilkan konten yang dipilih
+            const target = document.getElementById(
+                this.dataset.target
+            );
+
+            if (target) {
+                target.classList.remove("d-none");
+            }
 
         });
 

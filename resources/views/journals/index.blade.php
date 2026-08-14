@@ -100,7 +100,7 @@
                         <tr>
 
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $journal->tanggal }}</td>
+                            <td>{{ \Carbon\Carbon::parse($journal->tanggal)->translatedFormat('d M Y') }}</td>
                             <td>{{ $journal->hari }}</td>
                             <td>{!! nl2br(e($journal->unit_kerja)) !!}</td>
                             <td>{{ $journal->catatan }}</td>
@@ -145,7 +145,7 @@
     </div>
 
     <div class="mt-4">
-        {{ $journals->links() }}
+        {{ $journals->links('pagination::bootstrap-5') }}
     </div>
 
 </div>

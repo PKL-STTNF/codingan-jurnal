@@ -92,8 +92,7 @@
                 id="hari"
                 class="form-control search-box"
                 value="{{ old('hari', $journal->hari) }}"
-                readonly
-                required>
+                readonly>
 
             <div class="form-text">Hari terisi otomatis saat tanggal dipilih.</div>
 

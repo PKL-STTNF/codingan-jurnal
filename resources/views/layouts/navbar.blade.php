@@ -42,6 +42,14 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('export.index') }}"
+                        class="nav-link {{ request()->routeIs('export.*') ? 'active' : '' }}">
+                        <i class="bi bi-download"></i>
+                        Export
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('profile.edit') }}" 
                         class="nav-link {{ request()->routeIs('profile.edit') ? 'active' : '' }}">
                         <i class="bi bi-person"></i>
@@ -89,43 +97,43 @@
 
                     <ul class="dropdown-menu dropdown-menu-end">
 
-    @auth
+                        @auth
 
-    <li>
+                        <li>
 
-        <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('logout') }}">
 
-            @csrf
+                                @csrf
 
-            <button type="submit" class="dropdown-item text-danger">
+                                <button type="submit" class="dropdown-item text-danger">
 
-                <i class="bi bi-box-arrow-right"></i>
+                                    <i class="bi bi-box-arrow-right"></i>
 
-                Logout
+                                    Logout
 
-            </button>
+                                </button>
 
-        </form>
+                            </form>
 
-    </li>
+                        </li>
 
-    @else
+                        @else
 
-    <li>
-        <a class="dropdown-item" href="{{ route('login') }}">
-            Login
-        </a>
-    </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('login') }}">
+                                Login
+                            </a>
+                        </li>
 
-    <li>
-        <a class="dropdown-item" href="{{ route('register') }}">
-            Register
-        </a>
-    </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('register') }}">
+                                Register
+                            </a>
+                        </li>
 
-    @endauth
+                        @endauth
 
-</ul>
+                    </ul>
 
                 </li>
 

@@ -92,8 +92,7 @@
                 class="form-control search-box"
                 placeholder="Otomatis terisi dari tanggal"
                 value="{{ old('hari') }}"
-                readonly
-                required>
+                readonly>
 
             <div class="form-text">Hari terisi otomatis saat tanggal dipilih.</div>
 
