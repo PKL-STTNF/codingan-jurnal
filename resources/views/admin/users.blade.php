@@ -272,10 +272,12 @@
 
                                 @method('DELETE')
 
-                                <button
-                                    type="submit"
-                                    class="btn btn-outline-danger btn-sm"
-                                    onclick="return confirm('Yakin ingin menghapus pengguna ini? Semua data jurnal pengguna ini juga akan terhapus jika relasinya menggunakan cascade.')">
+                               <button type="button"
+                                        class="btn btn-danger btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#deleteUserModal"
+                                        data-delete-url="{{ route('admin.users.destroy', $user->id) }}"
+                                        data-user-name="{{ $user->name }}">
 
                                     <i class="bi bi-trash"></i>
 
@@ -325,4 +327,167 @@
 
 @endif
 
+{{-- =========================
+     MODAL HAPUS USER
+========================= --}}
+
+<div class="modal fade"
+     id="deleteUserModal"
+     tabindex="-1"
+     aria-labelledby="deleteUserModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 shadow"
+             style="
+                border-radius:20px;
+                overflow:hidden;
+            ">
+
+            {{-- ICON --}}
+
+            <div class="modal-body text-center p-4">
+
+                <div class="mx-auto mb-4 d-flex align-items-center justify-content-center"
+                     style="
+                        width:75px;
+                        height:75px;
+                        border-radius:50%;
+                        background:#fff1f2;
+                        color:#dc3545;
+                        font-size:34px;
+                     ">
+
+                    <i class="bi bi-person-x-fill"></i>
+
+                </div>
+
+
+                {{-- JUDUL --}}
+
+                <h4 class="fw-bold mb-2">
+
+                    Hapus Pengguna?
+
+                </h4>
+
+
+                {{-- USER NAME --}}
+
+                <div class="mb-3">
+
+                    <span id="deleteUserName"
+                          class="fw-semibold text-danger">
+
+                    </span>
+
+                </div>
+
+
+                {{-- DESKRIPSI --}}
+
+                <p class="text-muted mb-2">
+
+                    Apakah Anda yakin ingin menghapus pengguna ini?
+
+                </p>
+
+                <p class="text-muted small mb-4">
+
+                    Semua data jurnal milik pengguna ini juga dapat
+                    ikut terhapus secara permanen.
+
+                </p>
+
+
+                {{-- FORM DELETE --}}
+
+                <form id="deleteUserForm"
+                      method="POST">
+
+                    @csrf
+                    @method('DELETE')
+
+
+                    <div class="d-flex justify-content-center gap-2">
+
+                        {{-- BATAL --}}
+
+                        <button type="button"
+                                class="btn btn-light px-4"
+                                data-bs-dismiss="modal"
+                                style="border-radius:10px;">
+
+                            Batal
+
+                        </button>
+
+
+                        {{-- HAPUS --}}
+
+                        <button type="submit"
+                                class="btn btn-danger px-4"
+                                style="border-radius:10px;">
+
+                            <i class="bi bi-trash3 me-1"></i>
+
+                            Ya, Hapus
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{{-- =========================
+     SCRIPT MODAL HAPUS USER
+========================= --}}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const deleteUserModal =
+        document.getElementById('deleteUserModal');
+
+    const deleteUserForm =
+        document.getElementById('deleteUserForm');
+
+    const deleteUserName =
+        document.getElementById('deleteUserName');
+
+
+    deleteUserModal.addEventListener('show.bs.modal', function (event) {
+
+        const button = event.relatedTarget;
+
+        const deleteUrl =
+            button.getAttribute('data-delete-url');
+
+        const userName =
+            button.getAttribute('data-user-name');
+
+
+        // Masukkan URL ke form
+        deleteUserForm.setAttribute('action', deleteUrl);
+
+
+        // Tampilkan nama user
+        deleteUserName.textContent = userName;
+
+    });
+
+});
+
+</script>
 @endsection
