@@ -353,7 +353,7 @@
 
                         <button
                             type="button"
-                            class="btn btn-danger"
+                            class="btn btn-danger "
                             data-bs-toggle="modal"
                             data-bs-target="#deleteAccountModal">
 
@@ -580,11 +580,12 @@
 .profile-card {
     border-radius: 18px;
     background: #ffffff;
-    transition: all .2s ease;
+    transition: all .25s ease;
 }
 
 .profile-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,.07) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10) !important;
 }
 
 .profile-section-header {
@@ -637,8 +638,21 @@
     border-radius: 10px;
     padding: 10px 18px;
     font-weight: 500;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.profile-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.profile-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: none;
+}
 .profile-summary {
     position: sticky;
     top: 20px;
