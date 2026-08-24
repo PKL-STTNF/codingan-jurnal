@@ -812,7 +812,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'form[action="{{ route('profile.destroy') }}"]'
             );
 
-        if (form) {
+        if (form && form.reportValidity()) {
 
             form.submit();
 

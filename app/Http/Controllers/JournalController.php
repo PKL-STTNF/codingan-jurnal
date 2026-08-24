@@ -15,7 +15,8 @@ class JournalController extends Controller
         if ($request->search) {
             $query->where(function ($q) use ($request) {
                 $q->where('hari', 'like', '%'.$request->search.'%')
-                    ->orWhere('unit_kerja', 'like', '%'.$request->search.'%');
+                    ->orWhere('unit_kerja', 'like', '%'.$request->search.'%')
+                    ->orWhere('catatan', 'like', '%'.$request->search.'%');
             });
 
         }

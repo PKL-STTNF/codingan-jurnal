@@ -8,11 +8,7 @@
     </div>
 @endif
 
-<div class="container mt-4">
-
-    <div class="content-card">
-
-        <div class="header-journal d-md-flex justify-content-between align-items-center mb-4">
+<div class="header-journal d-md-flex justify-content-between align-items-center mb-4">
 
             <div>
 
@@ -155,8 +151,6 @@
         <div class="mt-4">
             {{ $journals->links('pagination::bootstrap-5') }}
         </div>
-
-    </div>
 
     {{-- =========================
         MODAL KONFIRMASI DELETE
