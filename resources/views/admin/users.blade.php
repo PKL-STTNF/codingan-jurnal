@@ -76,6 +76,33 @@
 
     </div>
 
+    <div class="col-md-2">
+
+        <select
+            name="per_page"
+            class="form-select"
+            onchange="this.form.submit()">
+
+            <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>
+                10 / halaman
+            </option>
+
+            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>
+                25 / halaman
+            </option>
+
+            <option value="50" {{ request('per_page', 50) == 50 ? 'selected' : '' }}>
+                50 / halaman
+            </option>
+
+            <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>
+                100 / halaman
+            </option>
+
+        </select>
+
+    </div>
+
     @if(request('search'))
 
         <div class="col-md-2">
@@ -147,7 +174,7 @@
                                        align-items-center me-2"
                                 style="width:38px;height:38px;">
 
-                                {{ strtoupper(substr($user->name, 0, 1)) }}
+                                {{ strtoupper(mb_substr($user->name, 0, 1)) }}
 
                             </div>
 
@@ -263,27 +290,16 @@
 
                             {{-- HAPUS --}}
 
-                            <form
-                                action="{{ route('admin.users.destroy', $user) }}"
-                                method="POST"
-                                class="d-inline">
+                            <button type="button"
+                                    class="btn btn-danger btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteUserModal"
+                                    data-delete-url="{{ route('admin.users.destroy', $user->id) }}"
+                                    data-user-name="{{ $user->name }}">
 
-                                @csrf
+                                <i class="bi bi-trash"></i>
 
-                                @method('DELETE')
-
-                               <button type="button"
-                                        class="btn btn-danger btn-sm"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#deleteUserModal"
-                                        data-delete-url="{{ route('admin.users.destroy', $user->id) }}"
-                                        data-user-name="{{ $user->name }}">
-
-                                    <i class="bi bi-trash"></i>
-
-                                </button>
-
-                            </form>
+                            </button>
 
                         @endif
 

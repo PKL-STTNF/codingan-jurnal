@@ -82,6 +82,7 @@
 
     </div>
 
+
     <!-- ================= CONTENT ================= -->
 
     <div class="col-lg-9">
@@ -89,6 +90,7 @@
         <div class="card shadow-sm border-0">
 
             <div class="card-body p-4">
+
 
                 <!-- ================================================= -->
                 <!-- 1. TAMBAH JURNAL -->
@@ -108,10 +110,12 @@
 
                         <p class="text-muted">
                             Gunakan fitur ini untuk mencatat kegiatan PKL
-                            yang telah dilakukan.
+                            yang telah dilakukan sekaligus menambahkan
+                            dokumentasi berupa foto kegiatan.
                         </p>
 
                     </div>
+
 
                     <h6 class="fw-bold">
                         Langkah-langkah:
@@ -137,32 +141,75 @@
 
                             <ul class="mt-2">
 
-                                <li>Tanggal kegiatan.</li>
+                                <li>
+                                    Tanggal kegiatan.
+                                </li>
 
-                                <li>Hari.</li>
+                                <li>
+                                    Hari.
+                                </li>
 
-                                <li>Unit Kerja / Pekerjaan.</li>
+                                <li>
+                                    Unit Kerja / Pekerjaan.
+                                </li>
 
-                                <li>Catatan kegiatan.</li>
+                                <li>
+                                    Catatan kegiatan.
+                                </li>
 
                             </ul>
 
                         </li>
 
+
+                        <!-- DOKUMENTASI -->
+
                         <li class="mb-2">
-                            Pastikan data yang dimasukkan sudah benar.
+
+                            Pada bagian <b>Dokumentasi</b>,
+                            pilih foto kegiatan yang ingin
+                            dilampirkan.
+
+                            <ul class="mt-2">
+
+                                <li>
+                                    Klik tombol <b>Pilih File</b>
+                                    atau <b>Choose File</b>.
+                                </li>
+
+                                <li>
+                                    Pilih foto dokumentasi dari perangkat.
+                                </li>
+
+                                <li>
+                                    Pastikan foto yang dipilih merupakan
+                                    dokumentasi kegiatan PKL.
+                                </li>
+
+                            </ul>
+
                         </li>
+
+
+                        <li class="mb-2">
+                            Pastikan seluruh data dan foto dokumentasi
+                            yang dimasukkan sudah benar.
+                        </li>
+
 
                         <li class="mb-2">
                             Klik tombol <b>Simpan Jurnal</b>.
                         </li>
 
+
                         <li>
                             Jurnal akan otomatis ditampilkan pada
-                            halaman Data Jurnal.
+                            halaman <b>Data Jurnal</b> beserta
+                            dokumentasi yang telah diunggah.
                         </li>
 
                     </ol>
+
 
                     <div class="alert alert-info mt-4">
 
@@ -173,17 +220,24 @@
                         <b>Unit Kerja / Pekerjaan</b> secara terpisah
                         agar lebih mudah dibaca.
 
+                        <br><br>
+
+                        Dokumentasi sebaiknya menggunakan foto yang
+                        jelas dan sesuai dengan kegiatan PKL yang dicatat.
+
                     </div>
+
 
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/tambah.png') }}"
+                        <img src="{{ asset('images/panduan/tambah.JPEG') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan menambah jurnal">
 
                     </div>
 
                 </div>
+
 
                 <!-- ================================================= -->
                 <!-- 2. EDIT JURNAL -->
@@ -203,10 +257,12 @@
 
                         <p class="text-muted">
                             Fitur edit digunakan apabila terdapat data jurnal
-                            yang ingin diperbaiki atau diperbarui.
+                            yang ingin diperbaiki, diperbarui, atau
+                            dokumentasi yang ingin diganti.
                         </p>
 
                     </div>
+
 
                     <h6 class="fw-bold">
                         Langkah-langkah:
@@ -227,18 +283,49 @@
                         </li>
 
                         <li class="mb-2">
-                            Ubah data yang diperlukan.
+                            Ubah data jurnal yang diperlukan.
+                        </li>
+
+
+                        <!-- DOKUMENTASI EDIT -->
+
+                        <li class="mb-2">
+
+                            Jika ingin mengganti dokumentasi,
+                            cari bagian <b>Dokumentasi</b>.
+
                         </li>
 
                         <li class="mb-2">
-                            Periksa kembali data yang telah diubah.
+
+                            Pilih foto dokumentasi baru dengan
+                            menekan tombol <b>Pilih File</b>
+                            atau <b>Choose File</b>.
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            Jika tidak ingin mengganti foto,
+                            dokumentasi lama dapat tetap digunakan.
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            Periksa kembali seluruh data,
+                            termasuk dokumentasi yang dipilih.
+
                         </li>
 
                         <li>
+
                             Klik tombol <b>Update Jurnal</b>.
+
                         </li>
 
                     </ol>
+
 
                     <div class="alert alert-warning mt-4">
 
@@ -247,17 +334,24 @@
                         Pastikan perubahan data sudah benar sebelum
                         menekan tombol <b>Update Jurnal</b>.
 
+                        <br><br>
+
+                        Jika mengganti dokumentasi, pastikan foto baru
+                        sudah sesuai dengan kegiatan jurnal tersebut.
+
                     </div>
+
 
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/edit.png') }}"
+                        <img src="{{ asset('images/panduan/edit.JPEG') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan mengedit jurnal">
 
                     </div>
 
                 </div>
+
 
                 <!-- ================================================= -->
                 <!-- 3. HAPUS JURNAL -->
@@ -281,6 +375,7 @@
                         </p>
 
                     </div>
+
 
                     <h6 class="fw-bold">
                         Langkah-langkah:
@@ -310,25 +405,34 @@
 
                     </ol>
 
+
                     <div class="alert alert-danger mt-4">
 
                         <strong>⚠️ Penting:</strong>
 
                         Data jurnal yang sudah dihapus
                         <b>tidak dapat dikembalikan</b>.
+
+                        <br><br>
+
+                        Dokumentasi yang terkait dengan jurnal
+                        juga akan ikut terhapus dari data jurnal.
+
                         Pastikan jurnal yang dipilih sudah benar.
 
                     </div>
 
+
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/menghapus.png') }}"
+                        <img src="{{ asset('images/panduan/menghapus.JPEG') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan menghapus jurnal">
 
                     </div>
 
                 </div>
+
 
                 <!-- ================================================= -->
                 <!-- 4. CARI & FILTER -->
@@ -353,6 +457,7 @@
 
                     </div>
 
+
                     <h6 class="fw-bold">
                         Cara menggunakan pencarian:
                     </h6>
@@ -372,8 +477,8 @@
                         </li>
 
                         <li class="mb-2">
-                            Kata kunci dapat berupa <b>hari</b> atau
-                            <b>pekerjaan</b>.
+                            Kata kunci dapat berupa <b>hari</b>,
+                            <b>pekerjaan</b>, atau <b>catatan</b>.
                         </li>
 
                         <li>
@@ -381,6 +486,7 @@
                         </li>
 
                     </ol>
+
 
                     <div class="alert alert-success mt-4">
 
@@ -392,12 +498,16 @@
 
                     </div>
 
+
                     <p class="text-muted mt-3">
+
                         Sistem akan menampilkan jurnal yang sesuai
                         dengan kata kunci yang dimasukkan.
+
                     </p>
 
                 </div>
+
 
                 <!-- ================================================= -->
                 <!-- 5. PROFIL -->
@@ -416,11 +526,13 @@
                         </h4>
 
                         <p class="text-muted">
-                            Halaman Profil Saya digunakan untuk melihat dan mengubah
-                            informasi akun yang digunakan pada Website Jurnal PKL.
+                            Halaman Profil Saya digunakan untuk melihat
+                            dan mengelola informasi akun, mengubah password,
+                            serta menghapus akun pada Website Jurnal PKL.
                         </p>
 
                     </div>
+
 
                     <h6 class="fw-bold">
                         Informasi yang tersedia:
@@ -441,25 +553,33 @@
                             yang telah dibuat oleh pengguna.
                         </li>
 
+                        <li class="mb-2">
+                            <b>Status Akun</b> — menunjukkan status akun pengguna,
+                            seperti aktif.
+                        </li>
+
                     </ul>
 
+
+                    <!-- INFORMASI AKUN -->
+
                     <h6 class="fw-bold mt-4">
-                        Cara mengubah informasi akun:
+                        Mengubah Informasi Akun:
                     </h6>
 
                     <ol>
 
                         <li class="mb-2">
-                            Buka menu <b>Profil Saya</b>.
+                            Buka menu <b>Profil</b> pada navbar.
                         </li>
 
                         <li class="mb-2">
-                            Ubah bagian <b>Nama</b> atau <b>Email</b>
-                            sesuai kebutuhan.
+                            Pada bagian <b>Informasi Akun</b>, ubah
+                            <b>Nama</b> atau <b>Email</b> sesuai kebutuhan.
                         </li>
 
                         <li class="mb-2">
-                            Pastikan data yang dimasukkan sudah benar.
+                            Pastikan nama dan email yang dimasukkan sudah benar.
                         </li>
 
                         <li>
@@ -468,16 +588,121 @@
 
                     </ol>
 
+
+                    <!-- UBAH PASSWORD -->
+
+                    <h6 class="fw-bold mt-4">
+                        Mengubah Password:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Pada halaman Profil, cari bagian <b>Ubah Password</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Masukkan <b>Password Saat Ini</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Masukkan password baru pada bagian
+                            <b>Password Baru</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Masukkan kembali password baru pada bagian
+                            <b>Konfirmasi Password</b>.
+                        </li>
+
+                        <li>
+                            Klik tombol <b>Simpan Password</b>.
+                        </li>
+
+                    </ol>
+
+
+                    <div class="alert alert-warning mt-4">
+
+                        <strong>⚠️ Perhatian:</strong>
+
+                        Gunakan password yang kuat dan jangan membagikan password
+                        kepada orang lain untuk menjaga keamanan akun.
+
+                    </div>
+
+
+                    <!-- HAPUS AKUN -->
+
+                    <h6 class="fw-bold mt-4">
+                        Menghapus Akun:
+                    </h6>
+
+                    <ol>
+
+                        <li class="mb-2">
+                            Pada halaman Profil, scroll ke bagian
+                            <b>Hapus Akun</b>.
+                        </li>
+
+                        <li class="mb-2">
+                            Perhatikan informasi bahwa penghapusan akun
+                            merupakan tindakan permanen.
+                        </li>
+
+                        <li class="mb-2">
+                            Masukkan <b>Password</b> untuk melakukan konfirmasi.
+                        </li>
+
+                        <li>
+                            Klik tombol <b>Hapus Akun</b>.
+                        </li>
+
+                    </ol>
+
+
+                    <div class="alert alert-danger mt-4">
+
+                        <strong>⚠️ Penting:</strong>
+
+                        Penghapusan akun bersifat permanen.
+
+                        Seluruh data jurnal dan dokumentasi
+                        yang terkait dengan akun juga akan ikut
+                        terhapus dan tidak dapat dikembalikan.
+
+                    </div>
+
+
+                    <!-- STATUS AKUN -->
+
+                    <h6 class="fw-bold mt-4">
+                        Melihat Status Akun:
+                    </h6>
+
+                    <p>
+
+                        Pada bagian informasi akun di sebelah kanan,
+                        pengguna dapat melihat jumlah jurnal yang telah dibuat
+                        serta <b>Status Akun</b>.
+
+                    </p>
+
+
                     <div class="alert alert-info mt-4">
 
                         <strong>💡 Tips:</strong>
 
-                        Gunakan nama dan email yang benar agar informasi akun
-                        tetap sesuai dan mudah dikenali.
+                        Pastikan informasi akun selalu diperbarui dan gunakan
+                        password yang aman.
+
+                        Sebelum menghapus akun, pastikan seluruh data jurnal
+                        dan dokumentasi yang penting sudah tidak diperlukan.
 
                     </div>
 
                 </div>
+
 
                 <!-- ================================================= -->
                 <!-- 6. TIPS -->
@@ -502,6 +727,7 @@
 
                     </div>
 
+
                     <div class="row">
 
                         <div class="col-md-6 mb-3">
@@ -521,6 +747,7 @@
 
                         </div>
 
+
                         <div class="col-md-6 mb-3">
 
                             <div class="border rounded p-3 h-100">
@@ -537,6 +764,7 @@
                             </div>
 
                         </div>
+
 
                         <div class="col-md-6 mb-3">
 
@@ -555,6 +783,26 @@
 
                         </div>
 
+
+                        <div class="col-md-6 mb-3">
+
+                            <div class="border rounded p-3 h-100">
+
+                                <h6 class="fw-bold">
+                                    Tambahkan Dokumentasi
+                                </h6>
+
+                                <p class="text-muted mb-0">
+                                    Tambahkan foto yang sesuai dengan
+                                    kegiatan agar jurnal memiliki
+                                    bukti dokumentasi yang jelas.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
                         <div class="col-md-6 mb-3">
 
                             <div class="border rounded p-3 h-100">
@@ -564,8 +812,9 @@
                                 </h6>
 
                                 <p class="text-muted mb-0">
-                                    Selalu periksa kembali jurnal sebelum
-                                    menyimpan atau memperbarui data.
+                                    Selalu periksa kembali jurnal,
+                                    termasuk foto dokumentasi,
+                                    sebelum menyimpan atau memperbarui data.
                                 </p>
 
                             </div>
@@ -574,18 +823,22 @@
 
                     </div>
 
+
                     <div class="alert alert-primary mt-3">
 
                         <strong>Kesimpulan:</strong>
 
                         Gunakan Website Jurnal PKL secara rutin untuk
                         mencatat seluruh kegiatan selama pelaksanaan PKL.
-                        Dengan pencatatan yang teratur, data jurnal akan
-                        lebih mudah dikelola dan diperiksa.
+
+                        Dengan pencatatan yang teratur dan dilengkapi
+                        dokumentasi foto, data jurnal akan lebih mudah
+                        dikelola, diperiksa, dan menjadi bukti kegiatan PKL.
 
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -594,6 +847,7 @@
     </div>
 
 </div>
+
 
 <!-- ================= STYLE ================= -->
 
@@ -647,6 +901,7 @@
     }
 
 </style>
+
 
 <!-- ================= JAVASCRIPT ================= -->
 

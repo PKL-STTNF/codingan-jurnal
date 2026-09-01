@@ -73,6 +73,10 @@
                             Catatan
                         </th>
 
+                        <th style="width:120px;">
+                            Dokumentasi
+                        </th>
+
                     </tr>
 
                 </thead>
@@ -99,6 +103,7 @@
                                         style="
                                             width:30px;
                                             height:30px;
+                                            min-width:30px;
                                             border-radius:50%;
                                             background:#2563eb;
                                             color:white;
@@ -109,7 +114,7 @@
                                             font-size:13px;
                                         "
                                     >
-                                        {{ strtoupper(substr($journal->user->name ?? 'U', 0, 1)) }}
+                                        {{ strtoupper(mb_substr($journal->user->name ?? 'U', 0, 1)) }}
                                     </div>
 
                                     <strong>
@@ -140,7 +145,7 @@
                             {{-- UNIT KERJA --}}
                             <td>
 
-                                {{ $journal->unit_kerja }}
+                                {!! nl2br(e($journal->unit_kerja)) !!}
 
                             </td>
 
@@ -152,16 +157,50 @@
 
                             </td>
 
+
+                            {{-- DOKUMENTASI --}}
+                            <td class="text-center">
+
+                                @if($journal->dokumentasi)
+
+                                    <img
+                                        src="{{ asset('storage/' . $journal->dokumentasi) }}"
+                                        alt="Dokumentasi kegiatan"
+                                        class="img-thumbnail"
+                                        style="
+                                            width:80px;
+                                            height:60px;
+                                            object-fit:cover;
+                                            cursor:pointer;
+                                            border-radius:8px;
+                                        "
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#imageModal"
+                                        data-image="{{ asset('storage/' . $journal->dokumentasi) }}"
+                                    >
+
+                                @else
+
+                                    <span class="text-muted small">
+                                        <i class="bi bi-image"></i>
+                                        Tidak ada
+                                    </span>
+
+                                @endif
+
+                            </td>
+
                         </tr>
 
                     @empty
 
                         <tr>
 
-                            <td colspan="6"
+                            <td colspan="7"
                                 class="text-center py-5">
 
-                                <div style="font-size:45px;"> 
+                                <div style="font-size:45px;">
+                                    📭
                                 </div>
 
                                 <h5 class="fw-bold mt-3">
@@ -187,5 +226,95 @@
     </div>
 
 </div>
+
+
+{{-- =========================
+     MODAL PREVIEW GAMBAR
+========================= --}}
+
+<div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1"
+    aria-labelledby="imageModalLabel"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content border-0 shadow"
+             style="border-radius:16px; overflow:hidden;">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title fw-bold"
+                    id="imageModalLabel">
+
+                    <i class="bi bi-image"></i>
+                    Dokumentasi Kegiatan
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+            <div class="modal-body text-center p-3">
+
+                <img
+                    id="previewImage"
+                    src=""
+                    alt="Preview dokumentasi"
+                    class="img-fluid rounded"
+                    style="
+                        max-height:70vh;
+                        object-fit:contain;
+                    "
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{{-- =========================
+     SCRIPT PREVIEW GAMBAR
+========================= --}}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const imageModal = document.getElementById('imageModal');
+    const previewImage = document.getElementById('previewImage');
+
+    imageModal.addEventListener('show.bs.modal', function (event) {
+
+        const image = event.relatedTarget;
+
+        const imageUrl = image.getAttribute('data-image');
+
+        previewImage.setAttribute('src', imageUrl);
+
+    });
+
+    imageModal.addEventListener('hidden.bs.modal', function () {
+
+        previewImage.setAttribute('src', '');
+
+    });
+
+});
+
+</script>
 
 @endsection

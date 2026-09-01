@@ -7,39 +7,82 @@ use Illuminate\Http\Request;
 
 class AdminJournalController extends Controller
 {
+    /**
+     * Menampilkan semua jurnal
+     */
     public function index(Request $request)
     {
-        $query = Journal::with('user')->latest();
+        $query = Journal::with([
+            'user',
+            'dokumentasis'
+        ])->latest();
 
-        // Pencarian
+        // =========================
+        // PENCARIAN
+        // =========================
         if ($request->filled('search')) {
+
             $search = $request->search;
 
             $query->where(function ($q) use ($search) {
 
                 $q->where('hari', 'like', "%{$search}%")
-                  ->orWhere('unit_kerja', 'like', "%{$search}%")
-                  ->orWhere('catatan', 'like', "%{$search}%")
-                  ->orWhereHas('user', function ($userQuery) use ($search) {
-                      $userQuery->where('name', 'like', "%{$search}%");
-                  });
+                    ->orWhere('unit_kerja', 'like', "%{$search}%")
+                    ->orWhere('catatan', 'like', "%{$search}%")
+
+                    ->orWhereHas('user', function ($userQuery) use ($search) {
+
+                        $userQuery->where(
+                            'name',
+                            'like',
+                            "%{$search}%"
+                        );
+
+                    });
 
             });
         }
 
-        $journals = $query->paginate(10)->withQueryString();
+        // =========================
+        // JUMLAH DATA PER HALAMAN
+        // =========================
+        $perPage = in_array(
+            $request->integer('per_page'),
+            [10, 25, 50, 100]
+        )
+            ? $request->integer('per_page')
+            : 50;
 
-        return view('admin.journals', compact('journals'));
+        // =========================
+        // PAGINATION
+        // =========================
+        $journals = $query
+            ->paginate($perPage)
+            ->withQueryString();
+
+        return view(
+            'admin.journals',
+            compact('journals')
+        );
     }
 
+    /**
+     * Menampilkan jurnal terbaru hari ini
+     */
     public function latest()
     {
-        $journals = \App\Models\Journal::with('user')
+        $journals = Journal::with([
+            'user',
+            'dokumentasis'
+        ])
             ->whereDate('tanggal', today())
             ->latest('tanggal')
             ->latest('created_at')
             ->get();
 
-        return view('admin.latest-journals', compact('journals'));
+        return view(
+            'admin.latest-journals',
+            compact('journals')
+        );
     }
 }

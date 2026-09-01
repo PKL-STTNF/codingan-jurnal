@@ -322,7 +322,7 @@
                                 font-weight:bold;
                              ">
 
-                            {{ strtoupper(substr($user->name, 0, 1)) }}
+                            {{ strtoupper(mb_substr($user->name, 0, 1)) }}
 
                         </div>
 
@@ -478,7 +478,7 @@
                                                     font-size:13px;
                                                  ">
 
-                                                {{ strtoupper(substr($journal->user->name ?? 'U', 0, 1)) }}
+                                                {{ strtoupper(mb_substr($journal->user->name ?? 'U', 0, 1)) }}
 
                                             </div>
 

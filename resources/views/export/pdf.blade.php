@@ -86,7 +86,7 @@
                     </td>
 
                     <td>
-                        {{ $journal->tanggal }}
+                        {{ \Carbon\Carbon::parse($journal->tanggal)->format('d-m-Y') }}
                     </td>
 
                     <td>

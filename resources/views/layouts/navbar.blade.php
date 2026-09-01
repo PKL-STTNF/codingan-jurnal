@@ -63,14 +63,6 @@
             <!-- Kanan -->
             <ul class="navbar-nav ms-auto align-items-center">
 
-                <li class="nav-item me-3">
-
-                    <a href="#" class="nav-link">
-
-                    </a>
-
-                </li>
-
                 <li class="nav-item dropdown">
 
                     <a class="nav-link dropdown-toggle d-flex align-items-center"
@@ -82,7 +74,7 @@
                         <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
                              style="width:38px;height:38px;">
 
-                            {{ strtoupper(substr(Auth::user()->name,0,1)) }}
+                            {{ strtoupper(mb_substr(Auth::user()->name,0,1)) }}
 
                         </div>
 

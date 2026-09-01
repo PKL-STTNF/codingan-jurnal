@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminUserController extends Controller
 {
@@ -20,7 +21,11 @@ class AdminUserController extends Controller
             });
         }
 
-        $users = $query->paginate(10)->withQueryString();
+        $perPage = in_array($request->integer('per_page'), [10, 25, 50, 100])
+            ? $request->integer('per_page')
+            : 50;
+
+        $users = $query->paginate($perPage)->withQueryString();
 
         return view('admin.users', compact('users'));
     }
@@ -48,6 +53,12 @@ class AdminUserController extends Controller
     {
         if ($user->id === auth()->id()) {
             return back()->with('error', 'Akun yang sedang digunakan tidak dapat dihapus.');
+        }
+
+        foreach ($user->journals as $journal) {
+            if ($journal->dokumentasi && Storage::disk('public')->exists($journal->dokumentasi)) {
+                Storage::disk('public')->delete($journal->dokumentasi);
+            }
         }
 
         $user->delete();

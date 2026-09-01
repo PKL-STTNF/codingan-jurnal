@@ -391,7 +391,7 @@
 
                     <div class="profile-avatar mx-auto">
 
-                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                        {{ strtoupper(mb_substr(Auth::user()->name, 0, 1)) }}
 
                     </div>
 
