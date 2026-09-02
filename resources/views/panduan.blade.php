@@ -230,7 +230,7 @@
 
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/tambah.JPEG') }}"
+                        <img src="{{ asset('images/panduan/tambah.jpeg') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan menambah jurnal">
 
@@ -344,7 +344,7 @@
 
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/edit.JPEG') }}"
+                        <img src="{{ asset('images/panduan/edit.jpeg') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan mengedit jurnal">
 
@@ -425,7 +425,7 @@
 
                     <div class="mt-4">
 
-                        <img src="{{ asset('images/panduan/menghapus.JPEG') }}"
+                        <img src="{{ asset('images/panduan/menghapus.jpeg') }}"
                              class="img-fluid rounded border shadow-sm"
                              alt="Panduan menghapus jurnal">
 
